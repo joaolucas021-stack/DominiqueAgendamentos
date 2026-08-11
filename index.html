@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dominique Design — Agendamento</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --pearl:#FAF8F5;
+  --pearl-dark:#F2EEE8;
+  --rose:#B84F78;
+  --rose-light:#F2AFC7;
+  --rose-pale:#FCEEF4;
+  --rosegold:#C66A8F;
+  --nude:#E8C4D2;
+  --nude-dark:#D09AB0;
+  --text:#24131D;
+  --text-mid:#765261;
+  --text-soft:#B58A9C;
+  --white:#FFFFFF;
+  --border:rgba(184,79,120,0.20);
+  --border-hover:rgba(184,79,120,0.48);
+  --radius:14px;
+  --radius-lg:22px;
+  --gold-bright:#FFD2E1;
+  --gold-mid:#D76A9A;
+  --gold-dark:#8C345B;
+  --gold-border:rgba(215,106,154,0.28);
+}
+
+body{
+  font-family:'Jost',sans-serif;
+  background-color:#24131D;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800'%3E%3Cdefs%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.008' numOctaves='6' seed='42' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='0.06' intercept='0.04'/%3E%3CfeFuncG type='linear' slope='0.05' intercept='0.03'/%3E%3CfeFuncB type='linear' slope='0.04' intercept='0.02'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Cfilter id='v'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.003 0.015' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='180' xChannelSelector='R' yChannelSelector='G'/%3E%3C/filter%3E%3ClinearGradient id='v1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23D76A9A' stop-opacity='0'/%3E%3Cstop offset='30%25' stop-color='%23F19CBD' stop-opacity='0.55'/%3E%3Cstop offset='50%25' stop-color='%23FFD8E7' stop-opacity='0.85'/%3E%3Cstop offset='70%25' stop-color='%23D76A9A' stop-opacity='0.45'/%3E%3Cstop offset='100%25' stop-color='%23A83D69' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='v2' x1='100%25' y1='0%25' x2='10%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23E58AAF' stop-opacity='0'/%3E%3Cstop offset='25%25' stop-color='%23F4B4CB' stop-opacity='0.4'/%3E%3Cstop offset='55%25' stop-color='%23FFD2E1' stop-opacity='0.7'/%3E%3Cstop offset='100%25' stop-color='%23B94B78' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='v3' x1='20%25' y1='100%25' x2='80%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%23C24F7F' stop-opacity='0'/%3E%3Cstop offset='40%25' stop-color='%23EC9DBA' stop-opacity='0.3'/%3E%3Cstop offset='60%25' stop-color='%23F6C0D3' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%23C24F7F' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='800' fill='%2324131D'/%3E%3Crect width='800' height='800' filter='url(%23n)' opacity='1'/%3E%3Cg filter='url(%23v)' opacity='0.9'%3E%3Crect x='-50' y='120' width='900' height='22' rx='11' fill='url(%23v1)'/%3E%3Crect x='-50' y='320' width='900' height='12' rx='6' fill='url(%23v2)'/%3E%3Crect x='-50' y='480' width='900' height='30' rx='15' fill='url(%23v1)' opacity='0.7'/%3E%3Crect x='-50' y='640' width='900' height='10' rx='5' fill='url(%23v3)'/%3E%3Crect x='80' y='-50' width='18' height='900' rx='9' fill='url(%23v2)' opacity='0.5'/%3E%3Crect x='380' y='-50' width='8' height='900' rx='4' fill='url(%23v1)' opacity='0.4'/%3E%3Crect x='600' y='-50' width='25' height='900' rx='12' fill='url(%23v3)' opacity='0.6'/%3E%3C/g%3E%3Crect width='800' height='800' fill='%23000' opacity='0.35'/%3E%3C/svg%3E");
+  background-size:800px 800px;
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ─── HEADER ─── */
+header{
+  background:rgba(44,20,34,0.72);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(215,106,154,0.22);
+  padding:2.5rem 1.5rem 2rem;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.header-ornament{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:1.2rem;
+}
+.ornament-line{
+  height:1px;
+  width:40px;
+  background:linear-gradient(90deg,transparent,var(--gold-mid));
+}
+.ornament-line.right{
+  background:linear-gradient(90deg,var(--gold-mid),transparent);
+}
+.ornament-diamond{
+  width:6px;height:6px;
+  background:var(--gold-mid);
+  transform:rotate(45deg);
+  border-radius:1px;
+}
+.brand-tag{
+  font-family:'Jost',sans-serif;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:3.5px;
+  text-transform:uppercase;
+  color:var(--gold-mid);
+  margin-bottom:0.6rem;
+}
+header h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,9vw,3.2rem);
+  font-weight:300;
+  color:#FFF2F7;
+  line-height:1;
+  letter-spacing:-0.5px;
+}
+header h1 em{
+  font-style:italic;
+  color:var(--gold-bright);
+  font-weight:400;
+}
+.header-sub{
+  font-size:12px;
+  color:rgba(246,207,222,0.55);
+  letter-spacing:1px;
+  margin-top:0.5rem;
+  font-weight:300;
+}
+.header-meta{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:1.2rem;
+  margin-top:1.2rem;
+  padding-top:1.2rem;
+  border-top:1px solid rgba(215,106,154,0.18);
+}
+.meta-item{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:12px;
+  color:rgba(246,207,222,0.6);
+  font-weight:300;
+}
+.meta-dot{width:4px;height:4px;border-radius:50%;background:var(--gold-mid);flex-shrink:0}
+
+/* ─── STEPPER ─── */
+.stepper{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1.2rem 1rem;
+  background:rgba(40,18,31,0.65);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  gap:0;
+  border-bottom:1px solid rgba(215,106,154,0.18);
+}
+.step-item{display:flex;align-items:center;gap:6px}
+.step-item+.step-item::before{
+  content:'';
+  width:20px;height:1px;
+  background:var(--border);
+  margin:0 2px;
+}
+.step-dot{
+  width:26px;height:26px;
+  border-radius:50%;
+  border:1px solid rgba(215,106,154,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:500;
+  color:rgba(215,106,154,0.35);
+  background:rgba(55,25,42,0.5);
+  transition:all 0.3s;
+  flex-shrink:0;
+}
+.step-dot.active{
+  background:var(--gold-mid);
+  border-color:var(--gold-mid);
+  color:#0D0B09;
+}
+.step-dot.done{
+  background:rgba(215,106,154,0.12);
+  border-color:rgba(215,106,154,0.4);
+  color:var(--gold-mid);
+}
+.step-label{
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.5px;
+  color:rgba(215,106,154,0.35);
+  display:none;
+  transition:color 0.3s;
+}
+.step-item.active .step-label,.step-item.done .step-label{
+  display:block;
+  color:var(--gold-mid);
+}
+
+/* ─── MAIN ─── */
+main{
+  max-width:500px;
+  margin:0 auto;
+  padding:1.8rem 1.2rem 5rem;
+}
+
+/* ─── SCREENS ─── */
+.screen{display:none;animation:rise 0.4s cubic-bezier(0.22,1,0.36,1)}
+.screen.active{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+.screen-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.75rem;
+  font-weight:400;
+  color:#FFEAF2;
+  margin-bottom:0.3rem;
+  line-height:1.15;
+}
+.screen-title em{font-style:italic;color:var(--gold-bright)}
+.screen-sub{
+  font-size:13px;
+  color:rgba(244,201,218,0.55);
+  margin-bottom:1.6rem;
+  font-weight:300;
+}
+
+/* ─── SERVICES ─── */
+.services-list{display:flex;flex-direction:column;gap:10px}
+.service-card{
+  background:rgba(55,25,42,0.75);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(215,106,154,0.22);
+  border-radius:var(--radius);
+  padding:1.1rem 1.2rem;
+  cursor:pointer;
+  transition:all 0.25s;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  position:relative;
+}
+.service-card:hover{border-color:rgba(215,106,154,0.55);background:rgba(75,31,54,0.85)}
+.service-card.selected{
+  border-color:var(--gold-mid);
+  background:rgba(94,34,65,0.9);
+}
+.service-icon{
+  width:46px;height:46px;
+  border-radius:12px;
+  background:rgba(215,106,154,0.1);
+  border:1px solid rgba(215,106,154,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.25rem;
+  flex-shrink:0;
+  transition:background 0.2s;
+  color:var(--gold-bright);
+}
+.service-card.selected .service-icon{background:rgba(215,106,154,0.18);border-color:rgba(215,106,154,0.4)}
+.service-info{flex:1;min-width:0}
+.service-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;
+  font-weight:400;
+  color:#FFEAF2;
+  margin-bottom:2px;
+  line-height:1.2;
+}
+.service-meta{font-size:11.5px;color:rgba(244,201,218,0.5);font-weight:300}
+.service-right{text-align:right;flex-shrink:0}
+.service-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;
+  font-weight:600;
+  color:var(--gold-bright);
+  display:block;
+}
+.service-dur{font-size:11px;color:rgba(244,201,218,0.5);font-weight:300}
+.sel-ring{
+  position:absolute;
+  top:10px;right:10px;
+  width:18px;height:18px;
+  border-radius:50%;
+  background:var(--gold-mid);
+  display:none;
+  align-items:center;justify-content:center;
+}
+.service-card.selected .sel-ring{display:flex}
+
+/* ─── DESIGNER ─── */
+.designer-card{
+  background:rgba(55,25,42,0.75);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(215,106,154,0.22);
+  border-radius:var(--radius-lg);
+  padding:1.5rem 1.5rem;
+  cursor:pointer;
+  transition:all 0.25s;
+  display:flex;
+  align-items:center;
+  gap:1.2rem;
+  position:relative;
+}
+.designer-card:hover{border-color:rgba(215,106,154,0.5)}
+.designer-card.selected{
+  border-color:var(--gold-mid);
+  background:rgba(94,34,65,0.9);
+}
+.designer-avatar{
+  width:62px;height:62px;
+  border-radius:50%;
+  background:rgba(215,106,154,0.12);
+  border:2px solid rgba(215,106,154,0.35);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;
+  font-weight:400;
+  color:var(--gold-bright);
+  flex-shrink:0;
+  letter-spacing:-1px;
+}
+.designer-info{}
+.designer-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;
+  font-weight:400;
+  color:#FFEAF2;
+  margin-bottom:3px;
+}
+.designer-role{font-size:12px;color:rgba(244,201,218,0.5);font-weight:300;margin-bottom:6px}
+.designer-tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.5px;
+  background:rgba(215,106,154,0.1);
+  color:var(--gold-mid);
+  padding:3px 9px;
+  border-radius:20px;
+  border:1px solid rgba(215,106,154,0.25);
+}
+.designer-card.selected .tag{background:rgba(215,106,154,0.18);border-color:rgba(215,106,154,0.45)}
+.designer-check{
+  position:absolute;top:14px;right:14px;
+  color:var(--gold-mid);
+  display:none;
+}
+.designer-card.selected .designer-check{display:block}
+
+/* ─── CALENDAR ─── */
+.cal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:1rem;
+}
+.cal-month-label{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;
+  font-weight:400;
+  color:#FFEAF2;
+  letter-spacing:0.5px;
+}
+.cal-nav{
+  width:34px;height:34px;
+  border:1px solid rgba(215,106,154,0.25);
+  border-radius:8px;
+  background:rgba(55,25,42,0.7);
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold-mid);
+  font-size:14px;
+  transition:all 0.2s;
+}
+.cal-nav:hover{border-color:rgba(215,106,154,0.6);color:var(--gold-bright)}
+.cal-grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:4px;
+  margin-bottom:1.5rem;
+  background:rgba(55,25,42,0.72);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(215,106,154,0.18);
+  border-radius:var(--radius);
+  padding:12px 10px;
+}
+.cal-dow{
+  text-align:center;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:rgba(215,106,154,0.45);
+  padding:4px 0 8px;
+}
+.cal-day{
+  aspect-ratio:1;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:400;
+  cursor:pointer;
+  transition:all 0.18s;
+  color:rgba(255,231,240,0.8);
+  border:1px solid transparent;
+  font-family:'Jost',sans-serif;
+}
+.cal-day:hover:not(.disabled):not(.empty){
+  background:rgba(215,106,154,0.12);
+  border-color:rgba(215,106,154,0.35);
+}
+.cal-day.today{
+  font-weight:500;
+  color:var(--gold-bright);
+  border-color:rgba(215,106,154,0.4);
+}
+.cal-day.selected{
+  background:var(--gold-mid);
+  color:#0D0B09;
+  border-color:var(--gold-mid);
+  font-weight:500;
+}
+.cal-day.disabled{opacity:0.2;cursor:not-allowed}
+.cal-day.empty{background:transparent;cursor:default}
+
+/* ─── TIME SLOTS ─── */
+.times-header{
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:rgba(215,106,154,0.55);
+  margin-bottom:10px;
+}
+.times-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+  margin-bottom:1.5rem;
+}
+.time-chip{
+  padding:9px 4px;
+  text-align:center;
+  border:1px solid rgba(215,106,154,0.2);
+  border-radius:8px;
+  font-size:12.5px;
+  font-weight:400;
+  cursor:pointer;
+  transition:all 0.18s;
+  background:rgba(55,25,42,0.7);
+  color:rgba(255,231,240,0.8);
+  font-family:'Jost',sans-serif;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.time-chip:hover:not(.taken){
+  border-color:rgba(215,106,154,0.55);
+  background:rgba(215,106,154,0.1);
+  color:var(--gold-bright);
+}
+.time-chip.selected{
+  background:var(--gold-mid);
+  color:#0D0B09;
+  border-color:var(--gold-mid);
+  font-weight:500;
+}
+.time-chip.taken{
+  background:rgba(38,17,29,0.5);
+  color:rgba(232,155,188,0.25);
+  opacity:0.5;
+  cursor:not-allowed;
+  text-decoration:line-through;
+}
+.no-date-msg{
+  text-align:center;
+  padding:2rem 1rem;
+  color:rgba(215,106,154,0.4);
+  font-size:13px;
+  font-style:italic;
+  border:1px dashed rgba(215,106,154,0.18);
+  border-radius:var(--radius);
+  background:rgba(55,25,42,0.5);
+}
+
+/* ─── FORM ─── */
+.form-group{margin-bottom:1.2rem}
+.form-label{
+  display:block;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:rgba(215,106,154,0.6);
+  margin-bottom:7px;
+}
+.form-input{
+  width:100%;
+  padding:13px 16px;
+  border:1px solid rgba(215,106,154,0.22);
+  border-radius:var(--radius);
+  background:rgba(55,25,42,0.72);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  font-family:'Jost',sans-serif;
+  font-size:15px;
+  font-weight:300;
+  color:#FFEAF2;
+  transition:border-color 0.2s;
+  outline:none;
+  -webkit-appearance:none;
+}
+.form-input:focus{border-color:rgba(215,106,154,0.6)}
+.form-input::placeholder{color:rgba(242,175,202,0.3)}
+
+/* ─── SUMMARY ─── */
+.summary-card{
+  background:var(--text);
+  border-radius:var(--radius-lg);
+  padding:1.5rem;
+  margin-bottom:1.5rem;
+  position:relative;
+  overflow:hidden;
+}
+.summary-card::after{
+  content:'';
+  position:absolute;
+  top:-30px;right:-30px;
+  width:120px;height:120px;
+  border-radius:50%;
+  background:rgba(201,150,122,0.08);
+}
+.summary-badge{
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:var(--rose-light);
+  margin-bottom:1rem;
+  opacity:0.7;
+}
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:1rem;
+  padding:9px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  position:relative;z-index:1;
+}
+.summary-row:last-child{border-bottom:none}
+.sum-label{font-size:12px;color:rgba(250,248,245,0.45);font-weight:300}
+.sum-value{font-size:13px;color:rgba(250,248,245,0.9);font-weight:400;text-align:right;max-width:60%}
+.sum-value.price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;
+  font-weight:600;
+  color:var(--rose-light);
+}
+
+/* ─── BUTTONS ─── */
+.btn{
+  width:100%;
+  padding:14px;
+  border-radius:var(--radius);
+  font-family:'Jost',sans-serif;
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:all 0.25s;
+  border:none;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-primary{
+  background:linear-gradient(135deg,#C84F80,#EA82AA);
+  color:#0D0B09;
+  margin-bottom:10px;
+}
+.btn-primary:hover{background:linear-gradient(135deg,#B93F70,#F19CBD);transform:translateY(-1px);box-shadow:0 6px 24px rgba(215,106,154,0.34)}
+.btn-primary:active{transform:translateY(0)}
+.btn-primary:disabled{opacity:0.3;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-ghost{
+  background:rgba(55,25,42,0.5);
+  color:rgba(215,106,154,0.55);
+  border:1px solid rgba(215,106,154,0.18);
+}
+.btn-ghost:hover{border-color:rgba(215,106,154,0.4);color:rgba(215,106,154,0.9)}
+
+/* ─── SUCCESS ─── */
+.success-wrap{text-align:center;padding:1rem 0}
+.success-bloom{
+  width:80px;height:80px;
+  border-radius:50%;
+  background:rgba(215,106,154,0.1);
+  border:2px solid rgba(215,106,154,0.35);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.5rem;
+  font-size:2rem;
+  color:var(--gold-bright);
+  animation:bloom 0.6s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+@keyframes bloom{
+  from{transform:scale(0);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+.success-wrap h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;
+  font-weight:300;
+  color:#FFEAF2;
+  margin-bottom:0.3rem;
+}
+.success-wrap h2 em{font-style:italic;color:var(--gold-bright)}
+.success-wrap p{
+  font-size:14px;
+  color:rgba(244,201,218,0.55);
+  margin-bottom:2rem;
+  font-weight:300;
+  line-height:1.7;
+}
+.wpp-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:#D94F83;
+  color:white;
+  padding:14px;
+  border-radius:var(--radius);
+  font-family:'Jost',sans-serif;
+  font-weight:500;
+  font-size:14px;
+  letter-spacing:0.5px;
+  cursor:pointer;
+  border:none;
+  width:100%;
+  margin-bottom:10px;
+  transition:all 0.2s;
+}
+.wpp-btn:hover{background:#C83E70;transform:translateY(-1px)}
+
+/* ─── DIVIDER ─── */
+.divider{
+  display:flex;align-items:center;gap:10px;
+  margin:1.5rem 0;
+}
+.divider-line{flex:1;height:1px;background:var(--border)}
+.divider-gem{
+  width:5px;height:5px;
+  background:var(--rose-light);
+  transform:rotate(45deg);
+  flex-shrink:0;
+  border-radius:1px;
+}
+</style>
+
+<style id="pink-marble-theme">
+:root{
+  --pearl:#FFF8FB;
+  --pearl-dark:#F5E5EC;
+  --rose:#D98AA8;
+  --rose-light:#F4C6D6;
+  --rose-pale:#FCEFF4;
+  --rosegold:#C9879E;
+  --nude:#EBC7D4;
+  --nude-dark:#D8A6B8;
+  --text:#171216;
+  --text-mid:#6E5962;
+  --text-soft:#A98F9A;
+  --white:#FFFFFF;
+  --border:rgba(215,106,154,0.22);
+  --border-hover:rgba(215,106,154,0.55);
+  --radius:14px;
+  --radius-lg:22px;
+  --gold-bright:#F7D77A;
+  --gold-mid:#D4AF5A;
+  --gold-dark:#8E6A25;
+  --gold-border:rgba(212,175,90,0.34);
+}
+
+/* Fundo rosa-mármore com veios suaves */
+body{
+  background-color:#171216 !important;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255,210,226,.20), transparent 27%),
+    radial-gradient(circle at 88% 74%, rgba(225,139,169,.16), transparent 30%),
+    linear-gradient(125deg, transparent 0 23%, rgba(255,255,255,.055) 24%, transparent 25% 48%, rgba(255,255,255,.035) 49%, transparent 50% 73%, rgba(255,255,255,.045) 74%, transparent 75%),
+    linear-gradient(35deg, transparent 0 42%, rgba(238,176,199,.07) 43%, transparent 44% 68%, rgba(255,255,255,.035) 69%, transparent 70%);
+  background-size:auto,auto,420px 420px,560px 560px;
+  color:var(--text);
+}
+
+/* Vidro preto com reflexos rosa */
+header{
+  background:linear-gradient(180deg,rgba(18,13,17,.94),rgba(30,18,24,.86)) !important;
+  border-bottom:1px solid rgba(212,175,90,.30) !important;
+}
+.stepper{
+  background:rgba(17,13,16,.88) !important;
+  border-bottom:1px solid rgba(212,175,90,.24) !important;
+}
+.service-card,
+.designer-card,
+.cal-grid,
+.time-chip,
+.form-input,
+.no-date-msg{
+  background:linear-gradient(145deg,rgba(42,24,33,.88),rgba(21,16,19,.90)) !important;
+  border-color:rgba(235,177,198,.20) !important;
+}
+.service-card:hover,
+.designer-card:hover{
+  border-color:rgba(244,198,214,.55) !important;
+  box-shadow:0 10px 30px rgba(0,0,0,.22);
+}
+.service-card.selected,
+.designer-card.selected{
+  background:linear-gradient(145deg,rgba(111,48,73,.88),rgba(42,22,33,.94)) !important;
+  border-color:var(--gold-mid) !important;
+  box-shadow:0 0 0 1px rgba(212,175,90,.12),0 12px 34px rgba(0,0,0,.25);
+}
+
+/* Ouro nos elementos de navegação e destaque */
+.brand-tag,
+.meta-dot,
+.step-label,
+.step-dot.done,
+.cal-month-label,
+.cal-dow,
+.times-header,
+.form-label,
+.tag,
+.designer-check,
+.service-price,
+.screen-title em,
+header h1 em,
+.success-wrap h2 em{
+  color:var(--gold-mid) !important;
+}
+.ornament-line{
+  background:linear-gradient(90deg,transparent,var(--gold-mid)) !important;
+}
+.ornament-line.right{
+  background:linear-gradient(90deg,var(--gold-mid),transparent) !important;
+}
+.ornament-diamond{
+  background:var(--gold-mid) !important;
+}
+.step-dot.active,
+.cal-day.selected,
+.time-chip.selected,
+.sel-ring{
+  background:linear-gradient(135deg,#C99A3D,#F2D77D) !important;
+  border-color:#D4AF5A !important;
+  color:#171216 !important;
+}
+.step-dot{
+  border-color:rgba(212,175,90,.28) !important;
+}
+.step-dot.done{
+  background:rgba(212,175,90,.12) !important;
+}
+
+/* Tipografia clara sobre o fundo escuro */
+header h1,
+.screen-title,
+.service-name,
+.designer-name,
+.cal-month-label,
+.success-wrap h2{
+  color:#FFF1F6 !important;
+}
+.header-sub,
+.meta-item,
+.screen-sub,
+.service-meta,
+.service-dur,
+.designer-role,
+.cal-dow,
+.form-label,
+.no-date-msg{
+  color:rgba(246,211,224,.68) !important;
+}
+
+/* Ícones e tags em rosa-mármore */
+.service-icon,
+.designer-avatar{
+  background:linear-gradient(145deg,rgba(225,139,169,.18),rgba(244,198,214,.07)) !important;
+  border-color:rgba(244,198,214,.28) !important;
+  color:#F5B9CD !important;
+}
+.tag{
+  background:rgba(225,139,169,.10) !important;
+  border-color:rgba(212,175,90,.30) !important;
+}
+.designer-card.selected .tag{
+  background:rgba(212,175,90,.12) !important;
+  border-color:rgba(212,175,90,.46) !important;
+}
+
+/* Campos */
+.form-input{
+  color:#FFF1F6 !important;
+}
+.form-input:focus{
+  border-color:var(--gold-mid) !important;
+  box-shadow:0 0 0 3px rgba(212,175,90,.08);
+}
+.form-input::placeholder{
+  color:rgba(244,198,214,.36) !important;
+}
+
+/* Botão principal: rosa intenso + dourado */
+.btn-primary{
+  background:linear-gradient(135deg,#C64F7D 0%,#E68EAD 48%,#D4AF5A 100%) !important;
+  color:#171216 !important;
+  box-shadow:0 8px 26px rgba(198,79,125,.24);
+}
+.btn-primary:hover{
+  background:linear-gradient(135deg,#B93F70 0%,#F1A9C3 48%,#F0CF72 100%) !important;
+  box-shadow:0 12px 34px rgba(212,175,90,.20);
+}
+.btn-ghost{
+  background:rgba(15,12,14,.58) !important;
+  color:#E9B0C5 !important;
+  border-color:rgba(212,175,90,.25) !important;
+}
+.btn-ghost:hover{
+  border-color:rgba(212,175,90,.55) !important;
+  color:#F5D67B !important;
+}
+
+/* Resumo em preto premium com detalhes dourados/rosa */
+.summary-card{
+  background:linear-gradient(145deg,#0F0C0E,#24151D) !important;
+  border:1px solid rgba(212,175,90,.22);
+  box-shadow:0 14px 36px rgba(0,0,0,.24);
+}
+.summary-card::after{
+  background:radial-gradient(circle,rgba(215,106,154,.16),transparent 68%) !important;
+}
+.summary-badge,
+.sum-value.price{
+  color:#E9B75D !important;
+}
+
+/* Sucesso */
+.success-bloom{
+  background:linear-gradient(145deg,rgba(225,139,169,.14),rgba(212,175,90,.10)) !important;
+  border-color:rgba(212,175,90,.48) !important;
+  color:#F2C96C !important;
+}
+.divider-gem{
+  background:var(--gold-mid) !important;
+}
+
+/* WhatsApp mantém a função, mas harmoniza com a identidade */
+.wpp-btn{
+  background:linear-gradient(135deg,#C84F7E,#D96D97) !important;
+}
+.wpp-btn:hover{
+  background:linear-gradient(135deg,#B93F70,#C85B89) !important;
+}
+
+/* Veios adicionais de mármore em superfícies */
+.service-card::before,
+.designer-card::before,
+.cal-grid::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius:inherit;
+  background:
+    linear-gradient(118deg,transparent 16%,rgba(255,220,232,.045) 17%,transparent 18% 52%,rgba(255,220,232,.035) 53%,transparent 54%),
+    linear-gradient(62deg,transparent 36%,rgba(212,175,90,.025) 37%,transparent 38%);
+}
+.service-card,
+.designer-card,
+.cal-grid{overflow:hidden;}
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="brand-tag">Estúdio de Beleza</div>
+  <div class="header-ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-diamond"></div>
+    <div class="ornament-line right"></div>
+  </div>
+  <h1><em>Dominique</em> Design</h1>
+  <p class="header-sub">Design de Sobrancelhas &amp; Extensão de Cílios</p>
+  <div class="header-meta">
+    <div class="meta-item">
+      <div class="meta-dot"></div>
+      Caminho do Abel, 10
+    </div>
+    <div class="meta-item">
+      <div class="meta-dot"></div>
+      Seg–Sáb, 8h–18h
+    </div>
+  </div>
+</header>
+
+<div class="stepper">
+  <div class="step-item active" id="step1">
+    <div class="step-dot active">1</div>
+    <span class="step-label">Serviço</span>
+  </div>
+  <div class="step-item" id="step2">
+    <div class="step-dot">2</div>
+    <span class="step-label">Designer</span>
+  </div>
+  <div class="step-item" id="step3">
+    <div class="step-dot">3</div>
+    <span class="step-label">Data</span>
+  </div>
+  <div class="step-item" id="step4">
+    <div class="step-dot">4</div>
+    <span class="step-label">Dados</span>
+  </div>
+  <div class="step-item" id="step5">
+    <div class="step-dot">✦</div>
+    <span class="step-label">Confirmado</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- TELA 1: SERVIÇO -->
+  <div class="screen active" id="screen-1">
+    <p class="screen-title">Qual <em>serviço</em>?</p>
+    <p class="screen-sub">Escolha o procedimento desejado</p>
+    <div class="services-list">
+
+      <div class="service-card" data-id="0" onclick="selectService(0)">
+        <div class="service-icon">❀</div>
+        <div class="service-info">
+          <div class="service-name">Design de Sobrancelha</div>
+          <div class="service-meta"></div>
+        </div>
+        <div class="service-right">
+          <span class="service-price">R$15</span>
+          <span class="service-dur"></span>
+        </div>
+        <div class="sel-ring">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+
+      <div class="service-card" data-id="1" onclick="selectService(1)">
+        <div class="service-icon">❀</div>
+        <div class="service-info">
+          <div class="service-name">Design com Henna</div>
+          <div class="service-meta"></div>
+        </div>
+        <div class="service-right">
+          <span class="service-price">R$35</span>
+          <span class="service-dur"></span>
+        </div>
+        <div class="sel-ring">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+
+      <div class="service-card" data-id="2" onclick="selectService(2)">
+        <div class="service-icon">❀</div>
+        <div class="service-info">
+          <div class="service-name">Extensão de Cílios</div>
+          <div class="service-meta"></div>
+        </div>
+        <div class="service-right">
+          <span class="service-price">R$50</span>
+          <span class="service-dur"></span>
+        </div>
+        <div class="sel-ring">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+
+       <div class="service-card" data-id="3" onclick="selectService(3)">
+        <div class="service-icon">❀</div>
+        <div class="service-info">
+          <div class="service-name">Extensão de Cílios + Design com Henna</div>
+          <div class="service-meta"></div>
+        </div>
+        <div class="service-right">
+          <span class="service-price">R$85</span>
+          <span class="service-dur"></span>
+        </div>
+        <div class="sel-ring">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+
+    </div>
+    <div style="margin-top:1.5rem">
+      <button class="btn btn-primary" id="btn1" onclick="goTo(2)" disabled>Continuar →</button>
+    </div>
+  </div>
+
+  <!-- TELA 2: DESIGNER -->
+  <div class="screen" id="screen-2">
+    <p class="screen-title">Sua <em>designer</em></p>
+    <p class="screen-sub"></p>
+
+    <div class="designer-card" onclick="selectDesigner(0)">
+      <div class="designer-avatar">Ds</div>
+      <div class="designer-info">
+        <div class="designer-name">Dominique Souza</div>
+        <div class="designer-role"></div>
+        <div class="designer-tags">
+          <span class="tag">Sobrancelhas</span>
+          <span class="tag">Henna</span>
+          <span class="tag">Cílios</span>
+        </div>
+      </div>
+      <div class="designer-check">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem">
+      <button class="btn btn-primary" id="btn2" onclick="goTo(3)" disabled>Continuar →</button>
+      <button class="btn btn-ghost" onclick="goTo(1)">← Voltar</button>
+    </div>
+  </div>
+
+  <!-- TELA 3: DATA & HORÁRIO -->
+  <div class="screen" id="screen-3">
+    <p class="screen-title">Data &amp; <em>horário</em></p>
+    <p class="screen-sub">Quando você prefere vir?</p>
+
+    <div class="cal-header">
+      <button class="cal-nav" onclick="prevMonth()">‹</button>
+      <span class="cal-month-label" id="cal-label"></span>
+      <button class="cal-nav" onclick="nextMonth()">›</button>
+    </div>
+    <div class="cal-grid" id="cal-grid"></div>
+    <div id="times-wrap">
+      <div class="no-date-msg">Selecione uma data para ver os horários disponíveis</div>
+    </div>
+
+    <div style="margin-top:1.5rem">
+      <button class="btn btn-primary" id="btn3" onclick="goTo(4)" disabled>Continuar →</button>
+      <button class="btn btn-ghost" onclick="goTo(2)">← Voltar</button>
+    </div>
+  </div>
+
+  <!-- TELA 4: DADOS -->
+  <div class="screen" id="screen-4">
+    <p class="screen-title">Seus <em>dados</em></p>
+    <p class="screen-sub">Para confirmarmos o agendamento</p>
+
+    <div class="summary-card">
+      <div class="summary-badge">✦ Resumo do agendamento</div>
+      <div class="summary-row">
+        <span class="sum-label">Serviço</span>
+        <span class="sum-value" id="sum-svc">—</span>
+      </div>
+      <div class="summary-row">
+        <span class="sum-label">Designer</span>
+        <span class="sum-value" id="sum-dsg">—</span>
+      </div>
+      <div class="summary-row">
+        <span class="sum-label">Data &amp; hora</span>
+        <span class="sum-value" id="sum-dt">—</span>
+      </div>
+      <div class="summary-row">
+        <span class="sum-label">Total</span>
+        <span class="sum-value price" id="sum-price">—</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Seu nome</label>
+      <input class="form-input" type="text" id="inp-name" placeholder="Ex: Ana Paula" oninput="checkForm()">
+    </div>
+    <div class="form-group">
+      <label class="form-label">WhatsApp</label>
+      <input class="form-input" type="tel" id="inp-wpp" placeholder="(21) 99999-9999" oninput="fmtPhone(this);checkForm()">
+    </div>
+
+    <button class="btn btn-primary" id="btn-conf" onclick="confirm()" disabled>✦ Confirmar Agendamento</button>
+    <button class="btn btn-ghost" onclick="goTo(3)">← Voltar</button>
+  </div>
+
+  <!-- TELA 5: SUCESSO -->
+  <div class="screen" id="screen-5">
+    <div class="success-wrap">
+      <div class="success-bloom">✦</div>
+      <h2>Tudo <em>confirmado</em>!</h2>
+      <p id="succ-msg"></p>
+
+      <div class="summary-card" style="text-align:left;margin-bottom:1.5rem">
+        <div class="summary-badge">✦ Detalhes</div>
+        <div class="summary-row">
+          <span class="sum-label">Cliente</span>
+          <span class="sum-value" id="c-name">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="sum-label">Serviço</span>
+          <span class="sum-value" id="c-svc">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="sum-label">Designer</span>
+          <span class="sum-value" id="c-dsg">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="sum-label">Data &amp; hora</span>
+          <span class="sum-value" id="c-dt">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="sum-label">Total</span>
+          <span class="sum-value price" id="c-price">—</span>
+        </div>
+      </div>
+
+      <button class="wpp-btn" onclick="sendWpp()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enviar pelo WhatsApp
+      </button>
+      <button class="btn btn-ghost" onclick="restart()">Fazer novo agendamento</button>
+    </div>
+  </div>
+
+</main>
+
+<script>
+const SERVICES=[
+  {name:'Design de Sobrancelha',price:15,dur:0},
+  {name:'Design com Henna',price:35,dur:0},
+  {name:'Extensão de Cílios',price:50,dur:0},
+  {name:'Extensão de Cílios + Design com Henna',price:85,dur:0},
+];
+const DESIGNERS=['Dominique Souza'];
+const MONTHS=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const DOWS=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+
+const today=new Date();today.setHours(0,0,0,0);
+let cy=today.getFullYear(),cm=today.getMonth();
+
+let bk={svc:null,dsg:null,date:null,time:null,name:'',wpp:''};
+
+/* fake busy */
+const busy={};
+(function(){
+  for(let i=0;i<10;i++){
+    const d=new Date(today);
+    d.setDate(today.getDate()+Math.floor(Math.random()*18));
+    if(d.getDay()===0)continue;
+    const k=`${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+    if(!busy[k])busy[k]=[];
+    const slots=genSlots();
+    const s=slots[Math.floor(Math.random()*slots.length)];
+    if(!busy[k].includes(s))busy[k].push(s);
+  }
+})();
+
+function genSlots(){
+  const s=[];
+  for(let h=8;h<19;h++){s.push(`${String(h).padStart(2,'0')}:00`);}
+  return s;
+}
+
+function selectService(id){
+  bk.svc=id;
+  document.querySelectorAll('.service-card').forEach(c=>c.classList.remove('selected'));
+  document.querySelector(`.service-card[data-id="${id}"]`).classList.add('selected');
+  document.getElementById('btn1').disabled=false;
+}
+
+function selectDesigner(id){
+  bk.dsg=id;
+  document.querySelectorAll('.designer-card').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('.designer-card')[id].classList.add('selected');
+  document.getElementById('btn2').disabled=false;
+}
+
+function renderCal(){
+  document.getElementById('cal-label').textContent=`${MONTHS[cm]} ${cy}`;
+  const g=document.getElementById('cal-grid');
+  g.innerHTML='';
+  DOWS.forEach(d=>{const el=document.createElement('div');el.className='cal-dow';el.textContent=d.charAt(0);g.appendChild(el);});
+  const first=new Date(cy,cm,1);
+  for(let i=0;i<first.getDay();i++){const el=document.createElement('div');el.className='cal-day empty';g.appendChild(el);}
+  const days=new Date(cy,cm+1,0).getDate();
+  for(let d=1;d<=days;d++){
+    const el=document.createElement('div');el.className='cal-day';el.textContent=d;
+    const dt=new Date(cy,cm,d);
+    if(dt.getDay()===0||dt<today){
+      el.classList.add('disabled');
+    } else {
+      if(dt.toDateString()===today.toDateString())el.classList.add('today');
+      if(bk.date&&dt.toDateString()===bk.date.toDateString())el.classList.add('selected');
+      el.onclick=()=>pickDay(d);
+    }
+    g.appendChild(el);
+  }
+}
+
+function pickDay(d){
+  bk.date=new Date(cy,cm,d);bk.time=null;
+  document.getElementById('btn3').disabled=true;
+  renderCal();renderTimes();
+}
+
+function renderTimes(){
+  const wrap=document.getElementById('times-wrap');
+  if(!bk.date){wrap.innerHTML='<div class="no-date-msg">Selecione uma data para ver os horários disponíveis</div>';return;}
+  const k=`${bk.date.getFullYear()}-${bk.date.getMonth()}-${bk.date.getDate()}`;
+  const taken=busy[k]||[];
+  const slots=genSlots();
+  const dtStr=bk.date.toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long'});
+  let html=`<p class="times-header">${dtStr.charAt(0).toUpperCase()+dtStr.slice(1)}</p><div class="times-grid">`;
+  slots.forEach(s=>{
+    const t=taken.includes(s);
+    const sel=s===bk.time;
+    html+=`<div class="time-chip${t?' taken':''}${sel?' selected':''}"${!t?` onclick="pickTime('${s}')"`:''}>${s}</div>`;
+  });
+  html+='</div>';
+  wrap.innerHTML=html;
+}
+
+function pickTime(t){bk.time=t;renderTimes();document.getElementById('btn3').disabled=false;}
+
+function prevMonth(){cm--;if(cm<0){cm=11;cy--;}renderCal();}
+function nextMonth(){cm++;if(cm>11){cm=0;cy++;}renderCal();}
+
+function fmtPhone(el){
+  let v=el.value.replace(/\D/g,'');
+  if(v.length>11)v=v.slice(0,11);
+  if(v.length>6)v=`(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+  else if(v.length>2)v=`(${v.slice(0,2)}) ${v.slice(2)}`;
+  else if(v.length)v=`(${v}`;
+  el.value=v;
+}
+
+function checkForm(){
+  const n=document.getElementById('inp-name').value.trim();
+  const w=document.getElementById('inp-wpp').value.replace(/\D/g,'');
+  document.getElementById('btn-conf').disabled=n.length<2||w.length<10;
+}
+
+function updateSummary(){
+  const s=SERVICES[bk.svc];
+  const dt=bk.date?bk.date.toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'short'}):'';
+  document.getElementById('sum-svc').textContent=s.name;
+  document.getElementById('sum-dsg').textContent=DESIGNERS[bk.dsg];
+  document.getElementById('sum-dt').textContent=`${dt}, ${bk.time}`;
+  document.getElementById('sum-price').textContent=`R$${s.price}`;
+}
+
+function confirm(){
+  bk.name=document.getElementById('inp-name').value.trim();
+  bk.wpp=document.getElementById('inp-wpp').value.trim();
+  const s=SERVICES[bk.svc];
+  const dt=bk.date.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
+  const dtCap=dt.charAt(0).toUpperCase()+dt.slice(1);
+  document.getElementById('succ-msg').textContent=`Olá, ${bk.name}! Seu horário com a Dominique está reservado. Até lá! ✦`;
+  document.getElementById('c-name').textContent=bk.name;
+  document.getElementById('c-svc').textContent=s.name;
+  document.getElementById('c-dsg').textContent=DESIGNERS[bk.dsg];
+  document.getElementById('c-dt').textContent=`${dtCap}, ${bk.time}`;
+  document.getElementById('c-price').textContent=`R$${s.price}`;
+  goTo(5);
+}
+
+function sendWpp(){
+  const s=SERVICES[bk.svc];
+  const dt=bk.date.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});
+  const msg=encodeURIComponent(
+    `Olá, Dominique! Gostaria de confirmar meu agendamento:\n\n`+
+    `👤 ${bk.name}\n`+
+    `✦ Serviço: ${s.name}\n`+
+    `📅 ${dt.charAt(0).toUpperCase()+dt.slice(1)}, às ${bk.time}\n`+
+    `💰 Valor: R$${s.price}\n\n`+
+    `📍 Caminho do Abel, 10`
+  );
+  window.open(`https://wa.me/5521989395699?text=${msg}`,'_blank');
+}
+
+function goTo(n){
+  document.querySelectorAll('.screen').forEach((s,i)=>s.classList.toggle('active',i+1===n));
+  for(let i=1;i<=5;i++){
+    const el=document.getElementById(`step${i}`);
+    const dot=el.querySelector('.step-dot');
+    el.classList.remove('active','done');
+    dot.classList.remove('active','done');
+    if(i<n){el.classList.add('done');dot.classList.add('done');dot.textContent='✓';}
+    else if(i===n){el.classList.add('active');dot.classList.add('active');dot.textContent=i===5?'✦':i;}
+    else{dot.textContent=i===5?'✦':i;}
+  }
+  if(n===3)renderCal();
+  if(n===4)updateSummary();
+  window.scrollTo(0,0);
+}
+
+function restart(){
+  bk={svc:null,dsg:null,date:null,time:null,name:'',wpp:''};
+  document.querySelectorAll('.service-card').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('.designer-card').forEach(c=>c.classList.remove('selected'));
+  document.getElementById('inp-name').value='';
+  document.getElementById('inp-wpp').value='';
+  ['btn1','btn2','btn3','btn-conf'].forEach(id=>document.getElementById(id).disabled=true);
+  goTo(1);
+}
+</script>
+</body>
+</html>
